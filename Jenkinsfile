@@ -11,6 +11,18 @@ pipeline {
         sh 'docker pull hashicorp/terraform:light'
       }
     }
+    
+   // Jenkinsfile
+String credentialsId = 'awsCredentials'
+
+try {
+  stage('checkout') {
+    node {
+      cleanWs()
+      checkout scm
+    }
+  }
+ 
 
 // Run terraform init
   stage('init') {
